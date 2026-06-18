@@ -12,7 +12,7 @@ class Hammer extends MeleeEquipment {
       super.use(player, targetEntity, { skipAttack: true, shouldAnimate: true })
     } else {
       // use as melee weapon
-      super.use(player, targetEntity, { shouldAnimate: true })
+      super.use(player, targetEntity)
     }
 
   }
