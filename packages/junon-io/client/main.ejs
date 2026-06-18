@@ -362,22 +362,15 @@
         <div class='new_game_container'>
             <div class='menu_main_header'><%= t('New Game') %></div>
             <input type="text" name="" class='new_colony_name_input black_input' placeholder='<%= t('Enter Colony Name') %>'>
-            <div class='new_game_row_count'>
-                <label>Row Count</label>
-                <select class='row_count_select ui_select'>
-                    <option value='32'>32</option>
-                    <option value='64'>64</option>
-                    <option value='96'>96</option>
-                    <option value='128' selected>128</option>
-                </select>
-            </div>
             <div class='new_game_col_count'>
-                <label>Col Count</label>
-                <select class='col_count_select ui_select'>
+                <label>Map size</label>
+                <select class='map_size_select ui_select'>
                     <option value='32'>32</option>
                     <option value='64'>64</option>
                     <option value='96'>96</option>
                     <option value='128' selected>128</option>
+                    <option value='256'>256</option>
+                    <option value='512'>512</option>
                 </select>
             </div>
             <div class='new_colony_menu_btn main_menu_btn'>
