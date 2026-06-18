@@ -174,6 +174,14 @@ Taintable.prototype = {
     this.setEffectLevel("spin", 0)
   },
 
+  addStun() {
+    this.setEffectLevel("stun", 1)
+  },
+
+  removeStun() {
+    this.setEffectLevel("stun", 0)
+  },
+
   addSmoke() {
     this.setEffectLevel("smoke", 1)
   },
@@ -226,6 +234,7 @@ Taintable.prototype = {
     if (effectName === 'rage') return this.addRage()
     if (effectName === 'invisible') return this.addInvisible()
     if (effectName === 'haste') return this.addHaste()
+    if (effectName === 'stun') return this.addStun()
   },
 
   addFire(level, options = {}) {
