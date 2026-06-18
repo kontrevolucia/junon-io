@@ -4420,21 +4420,18 @@ html[lang='ja'] #total_online_count {
     padding-top: 20px;
 }
 
-.new_game_row_count,
-.new_game_col_count {
-    display: none;
+.new_game_map_size {
+    display: absolute;
     font-family: 'cc';
     margin-top: 5px;
 }
 
-.new_game_row_count label,
-.new_game_col_count label {
+.new_game_map_size label {
     width: 85px;
     display: inline-block;
 }
 
-.new_game_row_count select,
-.new_game_col_count select {
+.new_game_map_size select {
     font-family: 'cc';
     font-size: 18px;
     width: 70px;
