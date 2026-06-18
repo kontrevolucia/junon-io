@@ -1177,6 +1177,7 @@ class BaseMob extends BaseEntity {
     this.consumeDrunk()
     this.consumeSpin()
     this.consumeFear()
+    this.consumeStun()
 
     if (this.isKnocked) return
     if (this.isPilot) return
