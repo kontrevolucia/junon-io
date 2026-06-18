@@ -62,7 +62,7 @@ html {
 ::-webkit-scrollbar-thumb {
     background: #555;
     border-radius: 10px;
-    border: solid 1px #111;
+    border: solid 1px #0d0d0d;
     width: 15px;
 }
 
@@ -189,7 +189,7 @@ html[lang='ja'] div {
     margin: auto;
     margin-top: 10px;
     /*border: solid 2px black;*/
-    /*background-color: #111;*/
+    /*background-color: #0d0d0d;*/
     /*background-color: rgba(20,20,20,1);*/
     color: gray;
     position: relative;
@@ -223,7 +223,7 @@ html[lang='ja'] .game_list_container .info_name {
     position: absolute;
     top: 5px;
     left: 10px;
-    background-color: #111;
+    background-color: #0d0d0d;
     padding: 0px 5px;
     border-radius: 5px;
     color: #999;
@@ -289,8 +289,8 @@ html[lang='ja'] .game_list_container .info_name {
 
 #stamina_effect {
     background-color: #d47323;
-}
-*/
+}*/
+
 .status_list_entry img {
     width: 20px;
     vertical-align: middle;
@@ -381,7 +381,7 @@ html[lang='ru'] #welcome_menu .blurb {
 .ps__rail-y,
 .ps__rail-y:focus,
 .ps__rail-y:hover {
-    background-color: #111 !important;
+    background-color: #0d0d0d !important;
 }
 
 @font-face {
@@ -1209,7 +1209,7 @@ body {
     position: absolute;
     padding: 20px;
     border: solid 4px black;
-    background-color: #111;
+    background-color: #0d0d0d;
     color: gray;
     z-index: 11;
 }
@@ -1288,7 +1288,7 @@ body {
     position: absolute;
     width: 200px;
     padding: 15px;
-    background-color: #111;
+    background-color: #0d0d0d;
     color: white;
     font-size: 18px;
     right: 20px;
@@ -1657,7 +1657,7 @@ html[lang='ja'] .stats_type {
 
 #error_menu_content.success {
     color: green;
-    background-color: #111;
+    background-color: #0d0d0d;
 }
 
 #repair_menu_content {
@@ -1748,7 +1748,7 @@ img[src=""] {
     position: relative;
     height: 40px;
     display: inline-table;
-    /*background-color: #111;*/
+    /*background-color: #0d0d0d;*/
     padding: 2px;
     border-radius: 5px;
     border: solid 2px;
@@ -1876,12 +1876,12 @@ img[src=""] {
 }
 
 .health_stat .bar_fill {
-    /*background-color: #2cbc7b;*/
-    background-color: #aa3838;
+    background-color: #2cbc7b;
+    /*background-color: #aa3838;*/
 }
 
 .oxygen_stat .label {
-    color: #43c9e8;
+    /*color: #43c9e8;*/
 }
 
 .hunger_stat .bar_fill {
@@ -1893,20 +1893,20 @@ img[src=""] {
 }
 
 .stamina_stat .bar_fill {
-    /*background-color: #963939; */
-    background-color: #797979;
+    background-color: #963939;
+    /*background-color: #797979;*/
 }
 
 .oxygen_stat .bar_fill,
 .shield_stat .bar_fill {
-    /*background-color: #0a0ab7;*/
-    background-color: #2064b7;
+    background-color: #0a0ab7;
+    /*background-color: #2064b7;*/
     width: 0%;
 }
 
 .energy_stat .bar_fill {
-    /*background-color: #2cbc7b; */
-    width: 0%;
+    background-color: #2cbc7b;
+    width: 10%;
 }
 
 .bar_container {
@@ -1924,8 +1924,8 @@ img[src=""] {
     color: white;
     text-shadow: 1px 1px black, -1px 1px black, 1px -1px black, -1px -1px black;
     position: absolute;
-    right: 5px;
-    top: 2px;
+    right: 10px;
+    top: 4px;
     z-index: 2;
 }
 
@@ -1941,8 +1941,6 @@ img[src=""] {
     font-size: 14px;
     display: inline-block;
     padding: 10px;
-    border-radius: 5px;
-    background-color: rgba(0, 0, 0, 0.5);
 }
 
 #chat_container {
@@ -1969,7 +1967,7 @@ img[src=""] {
 .chat_tab {
     display: inline-block;
     color: white;
-    background-color: #111;
+    background-color: #0d0d0d;
     font-family: 'cc';
     padding: 2px 7px;
     border: solid 1px #333;
@@ -2054,12 +2052,12 @@ img[src=""] {
 #chat_container.chat_mode .chat_history {
     background-color: black;
     overflow-y: scroll;
-    border: 3px solid #111;
+    border: 3px solid #0d0d0d;
 }
 
 #chat_container.chat_mode #chat_input_container {
     opacity: 1;
-    border: 3px solid #111;
+    border: 3px solid #0d0d0d;
 }
 
 #chat_input {
@@ -2282,12 +2280,12 @@ img[src=""] {
 
 #death_screen_container {
     display: none;
-    background-color: black;
+    background-color: red;
     width: 100%;
     height: 100%;
     position: absolute;
-    z-index: 20;
-    opacity: 0.85;
+    z-index: 200;
+    opacity: 0.45;
     top: 0;
 }
 
@@ -2298,12 +2296,11 @@ img[src=""] {
 #death_screen_content {
     color: white;
     font-size: 2.5em;
-    width: 500px;
-    height: 500px;
+    width: 100%;
+    height: 100%;
     text-align: center;
     background-color: black;
     opacity: 0.9;
-    padding: 20px;
 }
 
 #death_screen_container.now #death_screen_content {
@@ -2319,11 +2316,11 @@ html[lang='ja'] #death_screen_content_message {
 }
 
 .chat_content[data-error='true'] {
-    color: #f75f5f;
+    color: red;
 }
 
 .chat_content[data-success='true'] {
-    color: #6fa26c;
+    color: orange;
 }
 
 /* https://stackoverflow.com/a/14816807 */
@@ -2597,7 +2594,7 @@ html[lang='ja'] #death_screen_content_message {
 #hud_action_container {
     position: absolute;
     top: 5px;
-    left: 25px;
+    left: 0px;
 }
 
 #base_hud.pvp #hud_action_container {
@@ -2658,9 +2655,8 @@ html[lang='ru'] #blueprint_menu {
     padding-top: 2px;
     float: left;
     margin-right: 5px;
-    border: solid 2px #555;
-    background-color: #222;
-    border-radius: 4px;
+    border: solid 2px black;
+    background-color: #0d0d0d;
 }
 
 #debug_control_panel .hud_btn {
@@ -3240,7 +3236,7 @@ html[lang='ru'] .blueprint_name {
     object-fit: contain;
     display: inline-block;
     margin-right: 10px;
-    /*    background-color: #111;
+    /*    background-color: #0d0d0d;
     border: solid 1px #3b3b3b;
 */
 }
@@ -3424,7 +3420,7 @@ input[type=number]::-webkit-outer-spin-button {
     cursor: pointer;
     display: inline-block;
     background-color: #bf5036;
-    border: solid 2px #111;
+    border: solid 2px #0d0d0d;
     font-family: 'cc';
 }
 
@@ -3527,14 +3523,14 @@ input[type=number]::-webkit-outer-spin-button {
 #right_bar_container,
 #bottom_bar_container {
     position: absolute;
-    background-color: black;
+    background-color: #0d0d0d;
     height: 45px;
     width: 100%;
 }
 
 #top_bar_container {
     top: 0px;
-    border-bottom: solid 1px #333;
+    border: solid 4px black;
 }
 
 #bottom_bar_container {
@@ -3551,7 +3547,7 @@ input[type=number]::-webkit-outer-spin-button {
     border: solid 2px #333;
     padding: 10px;
     font-size: 12px;
-    background-color: #111;
+    background-color: #0d0d0d;
     margin-top: 5px;
     width: 50px;
     height: 20px;
@@ -3822,7 +3818,7 @@ html[lang='ru'] .colony_info_entry label {
     font-family: arial;
     font-size: 14px;
     width: 160px;
-    background-color: #111;
+    background-color: #0d0d0d;
     left: 10px;
     bottom: 10px;
     padding: 5px;
@@ -4600,7 +4596,7 @@ html[lang='ja'] .save_entry .save_name {
     font-family: 'cc';
     font-size: 24px;
     margin-bottom: 10px;
-    border: solid 2px #111;
+    border: solid 2px #0d0d0d;
     background-color: #31231e;
     padding: 5px 10px;
 }
@@ -4671,7 +4667,7 @@ html[lang='ru'] .main_menu_btn {
     display: none;
     text-align: center;
     padding: 6px;
-    background-color: #111;
+    background-color: #0d0d0d;
     margin-top: 5px;
     position: absolute;
     top: 0px;
@@ -5380,7 +5376,7 @@ html[lang='ja'] .mobile_authentication_container .btn {
 
 .colony_preview_popup {
     position: absolute;
-    background-color: #111;
+    background-color: #0d0d0d;
     z-index: 12;
     display: inline-block;
     padding: 10px;
@@ -5603,7 +5599,7 @@ html[lang='ja'] .mobile_authentication_container .btn {
     margin-bottom: 5px;
     width: 13px;
     height: 13px;
-    border: solid 3px #111;
+    border: solid 3px #0d0d0d;
     float: left;
     margin-left: 2px;
     margin-right: 3px;
@@ -5948,7 +5944,7 @@ html[lang='ja'] .ownership_stat_entry .stats_value {
     bottom: 58px;
     top: unset;
     border: solid 3px black;
-    background-color: #111;
+    background-color: #0d0d0d;
     color: #bbb;
     font-family: 'cc';
     width: 300px;
@@ -5973,7 +5969,7 @@ html[lang='ja'] .ownership_stat_entry .stats_value {
     right: 10px;
     background-color: #222;
     padding: 1px;
-    border: solid 1px #111;
+    border: solid 1px #0d0d0d;
 }
 
 .team_entry_row.mine:hover .import_world_btn,
@@ -6938,7 +6934,7 @@ label[for='not_abuse_checkbox'] {
 
 .vote_player_cell.dead {
     cursor: not-allowed;
-    background-color: #111;
+    background-color: #0d0d0d;
 }
 
 .vote_player_cell .dead_icon {
@@ -6998,7 +6994,7 @@ label[for='not_abuse_checkbox'] {
 }
 
 .vote_player_cell.dead:hover {
-    background-color: #111;
+    background-color: #0d0d0d;
 }
 
 .vote_player_cell.selected {
@@ -7045,7 +7041,7 @@ label[for='not_abuse_checkbox'] {
     left: 20px;
     font-family: 'cc';
     font-size: 20px;
-    background-color: #111;
+    background-color: #0d0d0d;
     padding: 10px;
     opacity: 0.8;
     max-width: 30%;
@@ -7182,7 +7178,7 @@ html[lang='ja'] .quest_label {
     position: absolute;
     top: 5px;
     left: 10px;
-    background-color: #111;
+    background-color: #0d0d0d;
     padding: 0px 5px;
     border-radius: 5px;
     color: #999;
@@ -7400,7 +7396,7 @@ html[lang='ja'] .game_mode_name {
     float: left;
     width: 100%;
     height: 16px;
-    background-color: #111;
+    background-color: #0d0d0d;
 }
 
 .total_task_stat .bar_fill {
@@ -7485,7 +7481,7 @@ html[lang='ja'] .game_mode_name {
     position: absolute;
     bottom: 70px;
     position: absolute;
-    background-color: #111;
+    background-color: #0d0d0d;
     border: solid 2px #222;
     padding: 10px;
     margin-left: -250px;
@@ -7576,7 +7572,7 @@ body.minigame #map_menu_frame {
     color: #eee;
     text-align: left;
     margin-left: 0px;
-    background-color: #111;
+    background-color: #0d0d0d;
     display: inline-block;
     padding: 5px 15px;
     padding-right: 50px;
@@ -7633,7 +7629,7 @@ body.minigame #map_menu_frame {
     max-height: 300px;
     overflow-y: scroll;
     display: inline-block;
-    background-color: #111;
+    background-color: #0d0d0d;
     padding-left: 5px;
     padding-top: 5px;
 }
@@ -8398,8 +8394,8 @@ body.imposter_mode .minigame_poster {
 
 .chat_player_action {
     cursor: pointer;
-    border: solid 1px #111;
-    background-color: #111;
+    border: solid 1px #0d0d0d;
+    background-color: #0d0d0d;
     padding: 3px;
     padding-left: 10px;
 }
@@ -8559,7 +8555,7 @@ body.imposter_mode .minigame_poster {
 }
 
 #command_block_menu .action_entry {
-    border: solid 1px #111;
+    border: solid 1px #0d0d0d;
     position: relative;
 }
 
@@ -8876,7 +8872,7 @@ body.imposter_mode .minigame_poster {
 .other_game_ad {
     padding: 10px;
     cursor: pointer;
-    background-color: #111;
+    background-color: #0d0d0d;
     border: solid 1px #555;
     text-decoration: none;
     margin-top: 10px;
