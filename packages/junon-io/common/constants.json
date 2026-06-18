@@ -3934,6 +3934,26 @@
       },
       "description": "Basic Melee weapon. Damage 7"
     },
+    "Hammer": {
+      "parent": "Equipments.MeleeEquipment",
+      "canDamageWalls": true,
+      "isWeapon": true,
+      "cost": {
+        "gold": 100
+      },
+      "categories": {"melee_damage": true},
+      "isAnimatable": true,
+      "stats": {
+        "damage": 25,
+        "range": 60,
+        "meleeRange": 60
+      },
+      "requirements": {
+        "IronOre": 60,
+        "Wood": 30
+      },
+      "description": "Used to deconstruct buildings and also good at combat. Deals stun(-20% speed) on players. Damage 25."
+    },
     "PlasmaBlade": {
       "parent": "Equipments.MeleeEquipment",
       "isWeapon": true,
