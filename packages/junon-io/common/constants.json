@@ -3946,7 +3946,8 @@
       "stats": {
         "damage": 25,
         "range": 60,
-        "meleeRange": 60
+        "meleeRange": 60,
+        "reload": 1250
       },
       "requirements": {
         "IronOre": 60,
