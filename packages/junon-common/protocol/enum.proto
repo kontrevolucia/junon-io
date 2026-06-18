@@ -266,6 +266,7 @@ enum BuildingType {
   MiasmaGate = 272;
   CabbageSeed = 273;
   Cabbage = 274;
+  Hammer = 275;
 }
 
 enum TerrainType {
