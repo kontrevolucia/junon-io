@@ -16,6 +16,13 @@ class Hammer extends MeleeEquipment {
     }
 
   }
+  
+  useOnTarget(user, target) {
+    super.useOnTarget(user, target)
+    target.addStun()
+
+    return true
+  }
 
   canSalvage(player, targetEntity) {
     let isBuilding = targetEntity && targetEntity.isBuilding()
