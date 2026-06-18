@@ -10,5 +10,6 @@ Statuses.Rage    = require("./rage_status")
 Statuses.Paralyze = require("./paralyze_status")
 Statuses.Drunk = require("./drunk_status")
 Statuses.Miasma = require("./miasma_status")
+Statuses.Stun = require("./stun_status")
 
 module.exports = Statuses
