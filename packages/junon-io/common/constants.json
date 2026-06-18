@@ -3941,7 +3941,7 @@
       "cost": {
         "gold": 100
       },
-      "categories": {"melee_damage": true},
+      "categories": {"wall_breaker": true, "melee_damage": true},
       "isAnimatable": true,
       "stats": {
         "damage": 25,
