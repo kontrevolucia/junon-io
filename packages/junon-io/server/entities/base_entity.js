@@ -1465,6 +1465,20 @@ class BaseEntity extends BaseTransientEntity {
     }
   }
 
+  consumeStun() {
+    const isTwoSecondInterval = this.game.timestamp % (Constants.physicsTimeStep * 2) === 0
+    if (!isTwoSecondInterval) return
+
+    const stunDuration = 5 * Constants.physicsTimeStep
+
+    if (this.hasEffect("stun")) {
+      const accumulatedTime = this.game.timestamp - this.getEffectCreatedAt("stun")
+      if (accumulatedTime >= stunDuration) {
+        this.removeEffect("stun")
+      }
+    }
+  }
+
   isReachableFromRoom() {
     return false
   }
