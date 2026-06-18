@@ -49,13 +49,22 @@ class Pickup extends BaseEntity {
   getFloatingTween() {
     let origPosition = this.sprite.position.y
 
+    let amplitude = 15
+
     let position = { position: origPosition }
 
     return new TWEEN.Tween(position)
         .to({ position: origPosition + 20 }, 1000)
         .easing(TWEEN.Easing.Quadratic.InOut)
         .onUpdate(() => {
+          let progress = (position.position - origPosition);
+
           this.sprite.position.y = position.position
+
+          this.sprite.rotation = Math.sin(progress / amplitude * Math.PI) * 0.1;
+
+          this.sprite.scale.x = 1 + (position.position - origPosition) * 0.008;
+          this.sprite.scale.y = 1 + (position.position - origPosition) * 0.008;
         })
         .yoyo(true)
         .repeat(Infinity)
