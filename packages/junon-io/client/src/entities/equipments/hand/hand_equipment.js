@@ -7,7 +7,7 @@ class HandEquipment extends BaseEquipment {
 
   playSound() {
     if (this.hasCategory("melee_damage")) {
-      this.game.playSound("melee_damage")
+      this.game.playSound("melee_hit_new")
     }
   }
 
