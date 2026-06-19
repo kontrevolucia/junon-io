@@ -1,73 +1,115 @@
-const BaseEquipment = require("./../base_equipment")
+const HandEquipment = require("./hand_equipment")
+const Helper = require('../../../../common/helper')
+const Constants = require('../../../../common/constants')
 const Protocol = require('../../../../common/util/protocol')
 
-class HandEquipment extends BaseEquipment {
+class MeleeEquipment extends HandEquipment {
 
-  use(user, targetEntity, options = {}) {
-    super.use(user, targetEntity, options)
+  getMeleeTargetOptions() {
+    let meleeTargetOptions = {}
 
-    let shouldAnimate = true
-    if (typeof options.shouldAnimate !== 'undefined') {
-      shouldAnimate = options.shouldAnimate
+    let additionalAttackables = this.getAdditionalAttackables()
+    if (additionalAttackables.length > 0) {
+      meleeTargetOptions["additionalAttackables"] = additionalAttackables
     }
 
-    if (this.isAnimatable() && shouldAnimate) {
-      user.sendEquipmentAnimation()
+    if (this.getAttackRadius()) {
+      meleeTargetOptions["attackRadius"] = this.getAttackRadius()
     }
 
-    return true
+    return meleeTargetOptions
   }
 
-  isObstructed(source, point) {
-    let entityToIgnore = source
-    let distance = this.game.distance(source.getX(), source.getY(), point[0], point[1]) 
-    let hit = source.getContainer().raycast(source.getX(), source.getY(), point[0], point[1], distance, entityToIgnore)
-    return hit
+  use(user, targetEntity, options = {}) {
+    if (options.skipAttack) {
+      super.use(user, targetEntity, options)
+      return
+    }
+
+    let success
+    let meleeTargetOptions = this.getMeleeTargetOptions()
+
+    if (this.canHitMultipleTargets()) {
+      let targets = user.getMeleeTargets(this.getMeleeRange(), meleeTargetOptions) //this.getMeleeTarget(user)
+
+      targets = targets.slice(0, this.getConcurrentTargetCount())
+
+      targets.forEach((target) => {
+        this.useOnTarget(user, target)
+      })
+
+      success = true
+    } else {
+      let target = user.getMeleeTarget(this.getMeleeRange(), meleeTargetOptions) //this.getMeleeTarget(user)
+      success = this.useOnTarget(user, target)
+    }
+
+    if (success) {
+      options.shouldAnimate = success
+
+      super.use(user, targetEntity, options)
+
+      user.consumeStamina("attack")
+      user.isAttacking = true
+    } else {
+      this.onMeleeAttackFailure(user)
+    }
+  }
+
+  onMeleeAttackFailure(user) {
+
+  }
+
+  getConcurrentTargetCount() {
+    return this.getConstants().concurrentTargetCount
+  }
+
+  getAttackRadius() {
+    return this.getStats().attackRadius
+  }
+
+  getAdditionalAttackables() {
+    return []
   }
 
   isMeleeEquipment() {
-    return false
-  }
-
-  getRole() {
-    return Protocol.definition().EquipmentRole.Hand
-  }
-
-  getDamage(targetEntity) {
-    let baseDamage = this.getEquipmentDamage()
-    if (!this.game.isMiniGame() && 
-         targetEntity && 
-         targetEntity.hasCategory("melee_resistant")) {
-      baseDamage = 2
-    }
-
-    if (!this.owner) return baseDamage
-    if (this.sector.entityCustomStats[this.owner.id]?.damage) baseDamage = this.sector.entityCustomStats[this.owner.id].damage
-    if (this.sector.mobCustomStats[this.owner.type]?.damage) baseDamage = this.sector.mobCustomStats[this.owner.type].damage
-
-    if (this.owner.isMob() || this.owner.isPlayer()) {
-      return Math.floor(this.owner.getDamageMultiplier() * baseDamage)
-    } else {
-      return baseDamage
-    }
-  }
-
-  getEquipmentDamage() {
-    if (this.sector) {
-      if (this.sector.entityCustomStats[this.item.id]) {
-        return this.sector.entityCustomStats[this.item.id].damage
-      } else if (this.sector.itemCustomStats[this.type]) {
-        return this.sector.itemCustomStats[this.type].damage
-      }
-    }
-
-    return this.getConstants().stats.damage
-  }
-
-  static isUsable() {
     return true
   }
 
+  canHitMultipleTargets() {
+    return this.getConstants().concurrentTargetCount &&
+           this.getConstants().concurrentTargetCount > 1
+  }
+
+  getMeleeTarget(user) {
+    return user.getMeleeTarget(this.getMeleeRange())
+  }
+
+  useOnTarget(user, target) {
+    const damage = this.getDamage(target)
+    if (target) {
+      target.damage(damage, user, this)
+      if (user.isPlayer()) {
+      }
+
+      if (this.canStunEnemy()) {
+        this.applyStun(target)
+      }
+    }
+
+    return true
+  }
+
+  applyStun(target) {
+    let knockChance = 1 //0.15
+    if (Math.random() < knockChance) {
+      target.setIsKnocked(true)
+    }
+  }
+
+  canStunEnemy() {
+    return this.getConstants().canStunEnemy
+  }
 }
 
-module.exports = HandEquipment
+module.exports = MeleeEquipment
