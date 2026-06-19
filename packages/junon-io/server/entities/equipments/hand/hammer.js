@@ -25,7 +25,7 @@ class Hammer extends MeleeEquipment {
   
   useOnTarget(user, target) {
     super.useOnTarget(user, target)
-    if (target.addStun) {
+    if (target && typeof target.addStun === 'function') {
       target.addStun()
     }
 
