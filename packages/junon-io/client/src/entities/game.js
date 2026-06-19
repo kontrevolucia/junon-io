@@ -746,7 +746,7 @@ class Game {
       "assault_rifle", "explosion", "missile",
       "harvest_plant", "melee_damage",
       "water_step", "flame", "gas_release", "burning", "eating", "saber_one", "saber_two", "alert", "tesla",
-      "cannon", "plasma_gun", "bubble", "deep_laser"]
+      "cannon", "plasma_gun", "bubble", "deep_laser", "melee_hit_new"]
   }
 
   initSoundManager() {
