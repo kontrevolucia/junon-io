@@ -16,7 +16,7 @@ class Hammer extends MeleeEquipment {
 
   getDamage(targetEntity) {
     let baseDamage = super.getDamage(targetEntity)
-    if (targetEntity && targetEntity.hasCategory("platform")) {
+    if (targetEntity && targetEntity.isBuilding && targetEntity.isBuilding()) {
       baseDamage *= 2.5
     }
     
