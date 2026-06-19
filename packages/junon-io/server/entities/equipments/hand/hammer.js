@@ -9,12 +9,20 @@ class Hammer extends MeleeEquipment {
   use(player, targetEntity) {
     if (this.canSalvage(player, targetEntity))  {
       targetEntity.breakBuilding(player)
-      super.use(player, targetEntity, { skipAttack: true, shouldAnimate: true })
-    } else {
+    }
       // use as melee weapon
       super.use(player, targetEntity)
     }
 
+  }
+
+  getDamage(targetEntity) {
+    let baseDamage = super.getDamage(targetEntity)
+    if (targetEntity.hasCategory("platform")) {
+      baseDamage *= 2.5
+    }
+    
+    return baseDamage
   }
   
   useOnTarget(user, target) {
