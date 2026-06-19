@@ -1759,8 +1759,8 @@ class Main {
     }
 
     let mapSize = document.querySelector(".map_size_select").value
-    data["row"] = mapSize
-    data["col"] = mapSize
+    data["rowCount"] = mapSize
+    data["colCount"] = mapSize
 
     if (this.isStress()) {
       data["stress"] = true
