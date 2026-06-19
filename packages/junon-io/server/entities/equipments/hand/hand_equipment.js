@@ -45,10 +45,6 @@ class HandEquipment extends BaseEquipment {
     if (this.sector.entityCustomStats[this.owner.id]?.damage) baseDamage = this.sector.entityCustomStats[this.owner.id].damage
     if (this.sector.mobCustomStats[this.owner.type]?.damage) baseDamage = this.sector.mobCustomStats[this.owner.type].damage
 
-    if (targetEntity.hasCategory('building') && this.getType() === Protocol.definition().BuildingType.Hammer) {
-      baseDamage *= 2.5
-    }
-
     if (this.owner.isMob() || this.owner.isPlayer()) {
       return Math.floor(this.owner.getDamageMultiplier() * baseDamage)
     } else {
