@@ -3887,8 +3887,8 @@ class Player extends BaseEntity {
   }
 
   getSpeedMultiplier() {
+    if (this.hasEffect('stun')) return 0.4
     if (this.hasEffect('fear')) return 0.7
-    if (this.hasEffect('stun')) return 0.8
     if (this.hasEffect('haste')) return 1.5
     return 1
   }
