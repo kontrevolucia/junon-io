@@ -1758,6 +1758,10 @@ class Main {
       data["name"] = colonyName
     }
 
+    let mapSize = document.querySelector(".map_size_select").value
+    data["row"] = mapSize
+    data["col"] = mapSize
+
     if (this.isStress()) {
       data["stress"] = true
     }
