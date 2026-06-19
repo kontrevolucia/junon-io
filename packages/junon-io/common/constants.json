@@ -3953,7 +3953,7 @@
         "IronOre": 60,
         "Wood": 30
       },
-      "description": "Used to deconstruct buildings and also good at combat. Deals stun(-20% speed) on players. Damage 25."
+      "description": "Used to deconstruct buildings and also good at combat. Deals stun(-60% speed) on players. Damage 25."
     },
     "PlasmaBlade": {
       "parent": "Equipments.MeleeEquipment",
