@@ -12,8 +12,6 @@ class Hammer extends MeleeEquipment {
     }
       // use as melee weapon
       super.use(player, targetEntity)
-    }
-
   }
 
   getDamage(targetEntity) {
