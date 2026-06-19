@@ -194,9 +194,11 @@ class BaseEntity extends BaseTransientEntity {
     let targets = this.getMeleeTargets(meleeRange, options)
 
     let closestTarget = targets.sort((a, b) => {
-      let distanceA =  this.game.distanceBetween(this, a)
-      let distanceB =  this.game.distanceBetween(this, b)
-      return distanceA - distanceB
+      const distanceA =  this.game.distanceBetween(this, a)
+      const distanceB =  this.game.distanceBetween(this, b)
+      const scoreA = a.health - distanceA;
+      const scoreB = b.health - distanceB;
+      return scoreB - scoreA
     })[0]
 
     return closestTarget
