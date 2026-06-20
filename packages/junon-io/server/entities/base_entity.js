@@ -1778,7 +1778,7 @@ class BaseEntity extends BaseTransientEntity {
   }
 
   applyFireDamage() {
-    this.setHealth(this.health - 1)
+    this.setHealth(this.health - 5)
   }
 
   canSpreadFire() {
