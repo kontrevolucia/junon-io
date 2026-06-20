@@ -39,7 +39,7 @@ class MolotovCocktail extends BaseProjectile {
     })
     
     
-    let platforms = this.getContainer().platformMap.platformMap.search(this.getFlameBoundingBox())
+    let platforms = this.getContainer().platformMap.search(this.getFlameBoundingBox())
     platforms.forEach((platform) => {
       let level = Math.floor(Math.random() * 4)
       platform.addFire(level, { forceFlamable: true })
