@@ -22,8 +22,8 @@
   "autoscreenshotPosition": 99,
   "equipmentStorageId": 2,
   "worldStorageId": 0,
-  "defaultVolume": 0.2,
-  "defaultBackgroundVolume": 0.1,
+  "defaultVolume": 0.6,
+  "defaultBackgroundVolume": 0.5,
   "gameWidth": 9600,
   "gameHeight": 9600,
   "cameraWidth": 544,
@@ -45,7 +45,7 @@
   "mobSafeSpawnRadiusTileCountDay": 15,
   "mobSafeSpawnRadiusTileCountNight": 10,
   "mobDespawnRadiusTileCount": 25,
-  "maxMobActivity": 60,
+  "maxMobActivity": 120,
   "mobSpawnLimitDay": 3,
   "mobSpawnLimitNight": 5,
   "oxygenProductionConsumptionRate": 3,
@@ -2076,8 +2076,8 @@
       "height": 32
     },
     "Bullet": {
-      "width": 8,
-      "height": 8,
+      "width": 16,
+      "height": 16,
       "sprite": {
         "width": 32,
         "height": 5,
@@ -2088,8 +2088,8 @@
       "categories": {"distance_dependent_width": true}
     },
     "ShotgunBullet": {
-      "width": 8,
-      "height": 8,
+      "width": 16,
+      "height": 16,
       "sprite": {
         "width": 32,
         "height": 5,
@@ -2112,8 +2112,8 @@
       "categories": {"distance_dependent_width": true}
     },
     "PlasmaBullet": {
-      "width": 32,
-      "height": 32,
+      "width": 64,
+      "height": 16,
       "sprite": {
         "width": 64,
         "height": 16,
@@ -2125,8 +2125,8 @@
       "categories": {"distance_dependent_width": true}
     },
     "Missile": {
-      "width": 32,
-      "height": 32,
+      "width": 256,
+      "height": 256,
       "speed": 100,
       "damage": 20
     }
