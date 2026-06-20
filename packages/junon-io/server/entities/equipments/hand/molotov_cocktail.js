@@ -38,11 +38,6 @@ class MolotovCocktail extends HandEquipment {
     return super.use(user, targetEntity, options)
   }
 
-  isConsumable() {
-    return true
-  }
-
-
   setOnFire(entity) {
     if (this.isDepleted()) {
       let owner = this.getOwner()
