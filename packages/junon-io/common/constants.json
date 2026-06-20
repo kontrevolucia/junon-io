@@ -2084,7 +2084,7 @@
         "tint": "#ffff07"
       },
       "damage": 10,
-      "speed": 70,
+      "speed": 375,
       "categories": {"distance_dependent_width": true}
     },
     "ShotgunBullet": {
@@ -2096,7 +2096,7 @@
         "tint": "#777777"
       },
       "damage": 12,
-      "speed": 50,
+      "speed": 400,
       "categories": {"distance_dependent_width": true}
     },
     "RifleBullet": {
@@ -2107,7 +2107,7 @@
         "height": 5,
         "tint": "#666666"
       },
-      "speed": 70,
+      "speed": 835,
       "damage": 7,
       "categories": {"distance_dependent_width": true}
     },
@@ -2120,14 +2120,14 @@
         "tint": "#cc4ad7"
       },
       "isPiercing": true,
-      "speed": 120,
+      "speed": 1000,
       "damage": 40,
       "categories": {"distance_dependent_width": true}
     },
     "Missile": {
       "width": 32,
       "height": 32,
-      "speed": 25,
+      "speed": 100,
       "damage": 20
     }
   },
@@ -3557,7 +3557,7 @@
       },
       "stats": {
         "range": 960,
-        "damage": 10,
+        "damage": 25,
         "health": 300,
         "reload": 500
       },
@@ -3576,7 +3576,7 @@
       },
       "stats": {
         "range": 256,
-        "damage": 12,
+        "damage": 25,
         "health": 300,
         "reload": 1500
       },
@@ -3595,9 +3595,9 @@
       },
       "stats": {
         "range": 1280,
-        "damage": 52,
+        "damage": 65,
         "health": 300,
-        "reload": 1200
+        "reload": 1750
       },
       "requirements": {
         "CopperBar": 20,
@@ -3633,7 +3633,7 @@
       },
       "stats": {
         "range": 960,
-        "damage": 9,
+        "damage": 25,
         "health": 300,
         "reload": 98
       },
@@ -3652,9 +3652,9 @@
       },
       "stats": {
         "range": 960,
-        "damage": 25,
+        "damage": 100,
         "health": 300,
-        "reload": 1000
+        "reload": 2000
       },
       "requirements": {
         "SulfurOre": 2,
@@ -3671,7 +3671,7 @@
       "isFireArm": true,
       "shouldNotRemoveOnBreak": true,
       "stats": {
-        "damage": 2,
+        "damage": 90,
         "usageCapacity": 20,
         "fuelConsumption": 80,
         "range": 200
@@ -3698,7 +3698,7 @@
       },
       "stats": {
         "range": 800,
-        "damage": 10,
+        "damage": 20,
         "health": 300,
         "reload": 800
       },
@@ -3737,7 +3737,7 @@
         "gold": 1000
       },
       "stats": {
-        "damage": 25,
+        "damage": 100,
         "range": 256,
         "reload": 1000
       },
@@ -3779,7 +3779,7 @@
         "gold": 1500
       },
       "stats": {
-        "damage": 10,
+        "damage": 90,
         "range": 256,
         "reload": 900
       },
