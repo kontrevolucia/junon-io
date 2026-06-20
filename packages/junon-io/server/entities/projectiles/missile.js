@@ -55,7 +55,7 @@ class Missile extends CollidableProjectile {
         weapon:        this.weapon,
         source:      { x: this.getX(),         y: this.getY() },
         destination: { x: this.getX(),         y: this.getY() },
-        explosionRadius: Constants.tileSize * 4
+        explosionRadius: Constants.tileSize * 8
       })
     } else {
       const explosion = this.createExplosion()
