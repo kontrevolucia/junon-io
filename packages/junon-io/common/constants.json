@@ -2061,8 +2061,8 @@
       "height": 32,
       "minWidth": 32,
       "maxWidth": 64,
-      "maxRadialExpansion": 16,
-      "damage": 10,
+      "maxRadialExpansion": 32,
+      "damage": 25,
       "speed": 0,
       "categories": {"elemental":true,"fire":true}
     },
@@ -2076,27 +2076,27 @@
       "height": 32
     },
     "Bullet": {
-      "width": 16,
-      "height": 16,
+      "width": 8,
+      "height": 8,
       "sprite": {
         "width": 32,
         "height": 5,
         "tint": "#ffff07"
       },
       "damage": 10,
-      "speed": 375,
+      "speed": 55,
       "categories": {"distance_dependent_width": true}
     },
     "ShotgunBullet": {
-      "width": 16,
-      "height": 16,
+      "width": 8,
+      "height": 8,
       "sprite": {
         "width": 32,
         "height": 5,
         "tint": "#777777"
       },
       "damage": 12,
-      "speed": 400,
+      "speed": 60,
       "categories": {"distance_dependent_width": true}
     },
     "RifleBullet": {
@@ -2107,7 +2107,7 @@
         "height": 5,
         "tint": "#666666"
       },
-      "speed": 835,
+      "speed": 85,
       "damage": 7,
       "categories": {"distance_dependent_width": true}
     },
@@ -2120,14 +2120,14 @@
         "tint": "#cc4ad7"
       },
       "isPiercing": true,
-      "speed": 1000,
+      "speed": 150,
       "damage": 40,
       "categories": {"distance_dependent_width": true}
     },
     "Missile": {
-      "width": 256,
-      "height": 256,
-      "speed": 100,
+      "width": 64,
+      "height": 64,
+      "speed": 65,
       "damage": 20
     }
   },
