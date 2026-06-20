@@ -138,7 +138,7 @@ class Stat extends BaseCommand {
     } else if (key === 'speed') {
       return "[1-15]"
     } else if (key === 'reload') {
-      return "[100-10000]"
+      return "[50-10000]"
     } else if (key === 'range') {
       return "[1-4096]"
     } else if (key === 'capacity') {
@@ -161,7 +161,7 @@ class Stat extends BaseCommand {
       case 'range':
         return parseInt(value) >= 1 && parseInt(value) <= 4096
       case 'reload':
-        return parseInt(value) >= 100 && parseInt(value) <= 10000
+        return parseInt(value) >= 50 && parseInt(value) <= 10000
       case 'capacity':
         return parseInt(value) >= 1 && parseInt(value) <= 10000
       case 'usage':
