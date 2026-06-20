@@ -2022,7 +2022,7 @@
       "speed": 8
     },
     "MolotovCocktail": {
-      "canDamageWalls": false,
+      "canDamageWalls": true,
       "width": 24,
       "height": 28,
       "speed": 12
