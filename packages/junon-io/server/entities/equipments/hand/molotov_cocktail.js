@@ -18,7 +18,7 @@ class MolotovCocktail extends HandEquipment {
     return this.setOnFire(targetEntity)
   }
 
-  use(user, targetEntity, options = {}) {
+  static use(user, targetEntity, options = {}) {
     let distanceFromUser = 0
     let sourcePoint = user.game.pointFromDistance(user.getX(), user.getY(), distanceFromUser, user.getRadAngle())
     let destination = { x: options.targetX, y: options.targetY }
