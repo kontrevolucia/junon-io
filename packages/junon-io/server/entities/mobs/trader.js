@@ -24,17 +24,17 @@ class Trader extends LandMob {
   move(deltaTime) {
     super.move(deltaTime)
 
-//     if (this.isLeaving) {
-//       this.removeAfterFiveSeconds()
-//       return
-//     }
-// 
-//     if (this.isSeekingTable) {
-//       this.findTradingTableAndMoveToIt() 
-//       return
-//     }
-// 
-//     this.ensureBoundToTradingTable()
+    if (this.isLeaving) {
+      this.removeAfterFiveSeconds()
+      return
+    }
+ 
+    if (this.isSeekingTable) {
+      this.findTradingTableAndMoveToIt() 
+      return
+    }
+ 
+    this.ensureBoundToTradingTable()
   }
 
   onMasterChanged() {
