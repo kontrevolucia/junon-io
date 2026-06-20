@@ -3712,7 +3712,6 @@
       "parent": "Equipments.MeleeEquipment",
       "isWeapon": true,
       "isThrowable": true,
-      "isStackable": true,
       "isUnbreakable": true,
       "isCostIndependent": true,
       "cost": {
