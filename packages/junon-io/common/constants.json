@@ -6697,7 +6697,7 @@
       "categories": {"turret":true,"editable_targets":true},
       "stats": {
         "reload": 2000,
-        "damage": 10,
+        "damage": 90,
         "range": 288,
         "health": 200,
         "fuelConsumption": 25,
@@ -6732,7 +6732,7 @@
       "showInteractTooltip": true,
       "stats": {
         "reload": 3000,
-        "damage": 12,
+        "damage": 25,
         "range": 320,
         "health": 300,
         "count": 2,
@@ -6801,7 +6801,7 @@
       "categories": {"turret":true,"editable_targets":true},
       "stats": {
         "reload": 3000,
-        "damage": 50,
+        "damage": 75,
         "health": 350,
         "range": 320,
         "powerConsumption": 750
@@ -6833,7 +6833,7 @@
       "showInteractTooltip": true,
       "stats": {
         "reload": 2000,
-        "damage": 75,
+        "damage": 100,
         "health": 300,
         "range": 320,
         "powerConsumption": 200
@@ -6865,7 +6865,7 @@
       "showInteractTooltip": true,
       "stats": {
         "reload": 2000,
-        "damage": 20,
+        "damage": 100,
         "health": 400,
         "range": 480,
         "powerConsumption": 250
