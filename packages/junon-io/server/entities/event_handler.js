@@ -763,30 +763,6 @@ class EventHandler {
     return entity.health
   }
 
-  getY(entityId) {
-    let player = this.getPlayer(entityId)
-    if (player) {
-      return player.getY()
-    }
-
-    let entity = this.game.getEntity(entityId)
-    if (!entity) return 0
-
-    return entity.getY()
-  }
-
-  getX(entityId) {
-    let player = this.getPlayer(entityId)
-    if (player) {
-      return player.getX()
-    }
-
-    let entity = this.game.getEntity(entityId)
-    if (!entity) return 0
-
-    return entity.getx()
-  }
-
   getRow(entityId) {
     let player = this.getPlayer(entityId)
     if (player) {
@@ -1327,8 +1303,6 @@ class EventHandler {
       "$getTeamMemberCount": true,
       "$getRoleMemberCount": true,
       "$getPlayerCount": true,
-      "$getY": true,
-      "$getX": true,
       "$getRow": true,
       "$getCol": true,
       "$getRegionPlayerCount": true,

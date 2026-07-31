@@ -271,8 +271,9 @@ enum BuildingType {
   GrenadeLauncher = 277;
   Minigun = 278;
   Uzi = 279;
-  ThompsonTao50 = 280;
-  Binoculars = 281;
+  SmallAirlock = 280;
+  ThompsonTao50 = 281;
+  Binoculars = 282;
 }
 
 enum TerrainType {
