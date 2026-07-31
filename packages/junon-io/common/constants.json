@@ -1165,12 +1165,8 @@
     },
     "Trooper": {
       "parent": "Mobs.Guard",
-      "sprite": {
-        "width": 50,
-        "height": 72
-      },
       "stats": {
-        "health": 200,
+        "health": 125,
         "damage": 12,
         "range": 256,
         "los": 256
@@ -1711,7 +1707,7 @@
         "reload": 300,
         "health": 2000,
         "damage": 25,
-        "range": 128,
+        "range": 512,
         "los": 1024
       },
       "isFlamable": false,
@@ -1766,7 +1762,7 @@
         "reload": 250,
         "health": 1500,
         "damage": 25,
-        "range": 128,
+        "range": 512,
         "los": 1024
       },
       "isFlamable": false,
@@ -2169,9 +2165,9 @@
     },
     "PlasmaBullet": {
       "width": 32,
-      "height": 32,
+      "height": 16,
       "sprite": {
-        "width": 64,
+        "width": 32,
         "height": 16,
         "tint": "#cc4ad7"
       },
@@ -3562,6 +3558,25 @@
       "parent": "Equipments.Bottle",
       "description": "Used to fill up OxygenGenerator or watering plants"
     },
+    "Binoculars": {
+      "parent": "Equipments.MeleeEquipment",
+      "isAnimatable": true,
+      "isUnbreakable": true,
+      "cost": {
+        "gold": 500
+      },
+      "categories": {"usesAim": true},
+      "stats": {
+        "range": 64,
+        "aimDistance": 1200
+      },
+      "requirements": {
+        "IronBar": 75,
+        "CircuitBoard": 10,
+        "Glass": 2
+      },
+      "description": "Stores liquid"
+    },
     "SurvivalTool": {
       "parent": "Equipments.MeleeEquipment",
       "isAnimatable": true,
@@ -3629,7 +3644,7 @@
       "isWeapon": true,
       "isFireArm": true,
       "cost": {
-        "gold": 250
+        "gold": 800
       },
       "projectileBarrelLength": 2,
       "stats": {
@@ -3651,7 +3666,7 @@
       "isWeapon": true,
       "isFireArm": true,
       "cost": {
-        "gold": 250
+        "gold": 1100
       },
       "projectileBarrelLength": 2.75,
       "stats": {
@@ -3675,7 +3690,7 @@
       "isWeapon": true,
       "isFireArm": true,
       "cost": {
-        "gold": 550
+        "gold": 1200
       },
       "projectileBarrelLength": 2.5,
       "stats": {
@@ -3701,14 +3716,15 @@
       "cost": {
         "gold": 2000
       },
+      "projectileBiasByY": 10,
       "projectileBarrelLength": 4,
       "stats": {
         "range": 1280,
-        "damage": 95,
+        "damage": 55,
         "usageCapacity": 1000,
         "health": 300,
         "reload": 2000,
-        "spreadAngle": 15
+        "spreadAngle": 0
       },
       "requirements": {
         "CopperBar": 200,
@@ -3721,15 +3737,17 @@
       "isWeapon": true,
       "isFireArm": true,
       "cost": {
-        "gold": 900
+        "gold": 1200
       },
       "projectileBarrelLength": 2.5,
       "stats": {
         "range": 960,
-        "damage": 25,
+        "damage": 15,
         "usageCapacity": 500,
         "health": 300,
         "reload": 250,
+        "burstCount": 5,
+        "burstTimeout": 65,
         "spreadAngle": 5
       },
       "requirements": {
@@ -3743,17 +3761,17 @@
       "isWeapon": true,
       "isFireArm": true,
       "cost": {
-        "gold": 700
+        "gold": 2500
       },
       "projectileBarrelLength": 3.125,
       "stats": {
         "range": 1024,
-        "damage": 30,
+        "damage": 20,
         "usageCapacity": 1000,
         "health": 300,
-        "reload": 500,
-        "burstCount": 20,
-        "burstTimeout": 125,
+        "reload": 200,
+        "burstCount": 5,
+        "burstTimeout": 65,
         "spreadAngle": 1.5
       },
       "requirements": {
@@ -3767,7 +3785,7 @@
       "isWeapon": true,
       "isFireArm": true,
       "cost": {
-        "gold": 700
+        "gold": 1000
       },
       "projectileBarrelLength": 2.5,
       "stats": {
@@ -3775,9 +3793,9 @@
         "damage": 20,
         "usageCapacity": 1000,
         "health": 300,
-        "reload": 500,
-        "burstCount": 10,
-        "burstTimeout": 100,
+        "reload": 200,
+        "burstCount": 5,
+        "burstTimeout": 50,
         "spreadAngle": 4.5
       },
       "requirements": {
@@ -3792,7 +3810,7 @@
       "isWeapon": true,
       "isFireArm": true,
       "cost": {
-        "gold": 700
+        "gold": 2000
       },
       "projectileBarrelLength": 2.5,
       "stats": {
@@ -3800,7 +3818,7 @@
         "damage": 50,
         "usageCapacity": 500,
         "health": 300,
-        "reload": 500,
+        "reload": 2000,
         "spreadAngle": 1.25
       },
       "requirements": {
@@ -3809,12 +3827,35 @@
       },
       "description": "Accurate and powerful Weapon that shoots fast projectiles"
     },
+    "ThompsonTao50": {
+      "parent": "Equipments.RangeEquipment",
+      "isWeapon": true,
+      "isFireArm": true,
+      "cost": {
+        "gold": 2500
+      },
+      "projectileBiasByY": 2,
+      "projectileBarrelLength": 2.5,
+      "stats": {
+        "range": 2048,
+        "damage": 75,
+        "usageCapacity": 150,
+        "health": 300,
+        "reload": 2500,
+        "spreadAngle": 1.1
+      },
+      "requirements": {
+        "IronBar": 250,
+        "CopperBar": 50
+      },
+      "description": "Accurate and powerful Weapon that shoots fast projectiles"
+    },
     "Minigun": {
       "parent": "Equipments.RangeEquipment",
       "isWeapon": true,
       "isFireArm": true,
       "cost": {
-        "gold": 700
+        "gold": 4500
       },
       "projectileBiasByY": 7,
       "projectileBarrelLength": 3.46875,
@@ -3839,7 +3880,7 @@
       "isWeapon": true,
       "isFireArm": true,
       "cost": {
-        "gold": 700
+        "gold": 3500
       },
       "projectileBarrelLength": 3.875,
       "stats": {
@@ -3861,16 +3902,15 @@
       "isWeapon": true,
       "isFireArm": true,
       "cost": {
-        "gold": 900
+        "gold": 5000
       },
-      "projectileBiasByY": 7.5,
       "projectileBarrelLength": 0.71875,
       "stats": {
         "range": 960,
         "damage": 100,
         "health": 300,
         "reload": 1350,
-        "spreadAngle": 11.5
+        "spreadAngle": 8.75
       },
       "requirements": {
         "IronBar": 100,
@@ -3885,12 +3925,12 @@
       "isWeapon": true,
       "isFireArm": true,
       "cost": {
-        "gold": 450
+        "gold": 3500
       },
       "shouldNotRemoveOnBreak": true,
       "projectileBarrelLength": 2.5,
       "stats": {
-        "damage": 1,
+        "damage": 2,
         "reload": 100,
         "usageCapacity": 500,
         "fuelConsumption": 1,
@@ -4148,14 +4188,14 @@
       "categories": {"melee_damage": true},
       "isAnimatable": true,
       "stats": {
-        "damage": 7,
+        "damage": 10,
         "range": 55,
         "meleeRange": 55
       },
       "requirements": {
         "IronOre": 10
       },
-      "description": "Basic Melee weapon. Damage 7"
+      "description": "Basic Melee weapon. Damage 10"
     },
     "PlasmaBlade": {
       "parent": "Equipments.MeleeEquipment",
@@ -6898,7 +6938,7 @@
       "hasFillBar": true,
       "categories": {"turret":true,"editable_targets":true},
       "stats": {
-        "reload": 2000,
+        "reload": 100,
         "damage": 2,
         "range": 288,
         "health": 200,

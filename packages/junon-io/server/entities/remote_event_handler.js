@@ -670,5 +670,18 @@ class RemoteEventHandler {
       player.game.addDisconnectedPlayer(player)
     }
   }
+  onCameraFocusTarget(player, data, socket) {
+    if (!player) return;
+    if (data.row !== undefined && data.col !== undefined) {
+      player.setCameraFocusTarget({
+        row: data.row,
+        col: data.col,
+        isPositionBased: true
+      });
+    } else if (data.id !== undefined) {
+      const entity = player.container.game.getEntityByNameOrId(data.id);
+      player.setCameraFocusTarget(entity);
+    }
+  }
 }
 module.exports = RemoteEventHandler

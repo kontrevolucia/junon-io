@@ -2999,6 +2999,7 @@ class Player extends BaseEntity {
   }
 
   update(deltaTime) {
+    console.log(this.test)
   }
 
   getSocketId() {
@@ -4998,6 +4999,8 @@ class Player extends BaseEntity {
   }
 
   setCameraFocusTarget(target) {
+    console.log('[onCameraFocusTarget] Received:', JSON.stringify(data))
+
     this.cameraFocusTarget = target
 
     if (target.isPositionBased && target.hasOwnProperty("row")) {
@@ -5382,7 +5385,7 @@ class Player extends BaseEntity {
   }
 
   setEquipIndex(index) {
-    if (!this.isControllingPlayer()) return
+    // if (!this.isControllingPlayer()) return
 
     index = parseInt(index)
     if (index < -1 || index >= Constants.regularInventoryBaseIndex) return

@@ -1,0 +1,20 @@
+{
+  "version": "v0.8.1.alpha",
+  "date": "July 31, 2026",
+  "title": "Small patch by KONTREVOLUCIA",
+  "content": {
+    "bugs": [
+      "Fixed flamethrower turret can't shoot through walls",
+      "Flamethrower turret now works same as flamethrower",
+      "Player now holds plasma gun and some other weapons properly"
+    ],
+    "features": [
+      "Weapons are more balanced now",
+      "Game now procedurally generates position in hands for hand equipments",
+      "Added Thompson TAO 50",
+      "Added binoculars(super buggy rn, needs to be fixed)",
+      "Trooper was reworked and looks same as pirate now",
+      "Guards & pirates & troopers now use random weapons from their weapon list"
+    ]
+  }
+}

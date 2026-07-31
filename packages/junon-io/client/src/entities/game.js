@@ -133,6 +133,100 @@ class Game {
 
     this.lastFrameTime = (new Date()).getTime()
     this.myScore = 0
+
+    this.isLookingAhead = false
+  }
+
+  isAimingWeaponEquipped() {
+    return !!this.getAimingWeapon()
+  }
+
+  getAimingWeapon() {
+    if (!this.player) return null
+
+    const weapon = this.player.getHandEquipment()
+    if (!weapon) return null
+
+    if (weapon.hasCategory("usesAim")) {
+        return weapon
+    }
+
+    return null
+  }
+
+  startAim() {
+    if (!this.isAimingWeaponEquipped()) return false
+
+    this.isLookingAhead = true
+
+    return true
+  }
+
+  stopAim() {
+    if (!this.isLookingAhead) return
+
+    this.isLookingAhead = false
+
+    if (!this.player) return
+
+    this.player.setCameraFocusTarget(this.player)
+    this.centerCameraTo(this.player)
+
+    SocketUtil.emit("CameraFocusTarget", {
+      id: this.player.id
+    });
+  }
+
+  updateAimCamera() {
+    if (!this.isLookingAhead) return
+
+    const threshold = 10
+
+    const weapon = this.getAimingWeapon()
+    if (!weapon) {
+        this.stopAim()
+        return
+    }
+
+    const mousePos = this.app.renderer.plugins.interaction.mouse.global
+    if (!mousePos) return
+
+    const worldMouseX = (mousePos.x - this.cameraDisplacement.x) / this.resolution
+    const worldMouseY = (mousePos.y - this.cameraDisplacement.y) / this.resolution
+      
+    const maxDistance = weapon.getConstants().stats.aimDistance
+
+    const distance = Math.min(
+      maxDistance,
+      this.distance(this.player.getX(), this.player.getY(), worldMouseX, worldMouseY)
+    )
+      
+    const angle = this.angle(this.player.getX(), this.player.getY(), worldMouseX, worldMouseY)
+      
+    const targetX = this.player.getX() + Math.cos(angle) * distance
+    const targetY = this.player.getY() + Math.sin(angle) * distance
+
+    if (isNaN(targetX) || isNaN(targetY) || !isFinite(targetX) || !isFinite(targetY)) {
+      console.warn('Invalid aim target:', { targetX, targetY, worldMouseX, worldMouseY, distance, angle })
+      return
+    }
+
+    if (this.lastTargetX && this.lastTargetY
+        && this.lastTargetX - targetX > threshold
+        && this.lastTargetY - targetY > threshold
+    ) 
+    {
+      SocketUtil.emit("CameraFocusTarget", {
+        row: (targetY / Constants.tileSize),
+        col: (targetX / Constants.tileSize)
+      });
+    }
+    
+    this.lastTargetX = targetX
+    this.lastTargetY = targetY
+    
+    this.player.setCameraFocusTarget({ x: targetX, y: targetY, isPositionBased: true })
+    this.centerCameraToXY(targetX, targetY)
   }
 
   initFloorTextures() {
@@ -1420,7 +1514,7 @@ class Game {
         cb()
       })
 
-    let tempAssets = ['displacement_map.png', 'squid_lord_heart.png', 'squid_staff.png', 'fries.png', 'energy_drink.png', 'alien_juice.png', 'rocket_launcher.png', 'scar_17_by_px.png', 'bowl_by_px.png', 'potato_soup_by_px.png', 'miso_soup_by_px.png', 'slime_broth_by_px.png', 'bomber_turret_by_px.png', 'firebat.png', 'plasma_blade.png', 'raven.png', 'starberries.png', 'car.png', 'bricks_texture.png', 'checker_texture.png', 'noise_texture.png', 'x_texture.png', 'xchecker_texture.png', 'nihonshu.png', 'pumpkin.png', 'pumpkin_plant.png', 'pumpkin_seed.png', 'rice.png', 'rice_plant.png', 'rice_seed.png', 'fish.png', 'nigiri.png', 'katana_reskin.png', 'pumpkin_pie.png', 'imperial_special_forces_armor.png', 'deconstructor.png', 'blue_laser.png', 'keypad_door.png', 'keypad_door_lower.png', 'keypad_door_upper.png', 'unbreakable_wall.png', 'sapper.png', 'sapper_corpse.png', 'dynamite.png', 'miasma_gate.png', "solid_texture2.png", "simplex_texture.png", "cabbage_seed.png", "cabbage_plant.png", "cabbage.png", "3dwall-0.png", "3dwall-1.png", "3dwall-2.png", "3dwall-3.png", "3dwall-4.png", "3dwall-5.png", "3dwall-6.png", "3dwall-7.png", "3dwall-8.png", "3dwall-9.png", "3dwall-10.png", "3dwall-11.png", "3dwall-12.png", "3dwall-13.png", "shotgun_reskin.png",  "ak47.png", "bolt_action_rifle.png", "minigun.png", "flame_thrower_reskin.png", "grenade_launcher.png", "uzi.png", "player_hands_hold.png", "player_hands_hold_heavy.png", "player_hands_hold_launcher.png"]
+    let tempAssets = ['displacement_map.png', 'squid_lord_heart.png', 'squid_staff.png', 'fries.png', 'energy_drink.png', 'alien_juice.png', 'rocket_launcher.png', 'scar_17_by_px.png', 'bowl_by_px.png', 'potato_soup_by_px.png', 'miso_soup_by_px.png', 'slime_broth_by_px.png', 'bomber_turret_by_px.png', 'firebat.png', 'plasma_blade.png', 'raven.png', 'starberries.png', 'car.png', 'bricks_texture.png', 'checker_texture.png', 'noise_texture.png', 'x_texture.png', 'xchecker_texture.png', 'nihonshu.png', 'pumpkin.png', 'pumpkin_plant.png', 'pumpkin_seed.png', 'rice.png', 'rice_plant.png', 'rice_seed.png', 'fish.png', 'nigiri.png', 'katana_reskin.png', 'pumpkin_pie.png', 'imperial_special_forces_armor.png', 'deconstructor.png', 'blue_laser.png', 'keypad_door.png', 'keypad_door_lower.png', 'keypad_door_upper.png', 'unbreakable_wall.png', 'sapper.png', 'sapper_corpse.png', 'dynamite.png', 'miasma_gate.png', "solid_texture2.png", "simplex_texture.png", "cabbage_seed.png", "cabbage_plant.png", "cabbage.png", "3dwall-0.png", "3dwall-1.png", "3dwall-2.png", "3dwall-3.png", "3dwall-4.png", "3dwall-5.png", "3dwall-6.png", "3dwall-7.png", "3dwall-8.png", "3dwall-9.png", "3dwall-10.png", "3dwall-11.png", "3dwall-12.png", "3dwall-13.png", "shotgun_reskin.png",  "ak47.png", "bolt_action_rifle.png", "minigun.png", "flame_thrower_reskin.png", "grenade_launcher.png", "uzi.png", "player_hands_hold.png", "player_hands_hold_heavy.png", "player_hands_hold_launcher.png", "thompson_tao50.png", "binoculars.png"]
     tempAssets.forEach((asset) => {
       console.log(`Loaded ${asset}:`)
       PIXI.Texture.addToCache(PIXI.Texture.fromImage('/assets/images/' + asset), asset)
@@ -1435,7 +1529,7 @@ class Game {
     }
 
   }
-
+  
   getPreloadedGraphics() {
     return {
       "los_range.png": this.getAttackRangeGraphics()
@@ -5224,6 +5318,18 @@ class Game {
     TWEEN.update()
 
     this.lastFrameTime = (new Date()).getTime()
+
+    const aimingWeapon = this.getAimingWeapon()
+    if (aimingWeapon) {
+        if (!this.isLookingAhead) {
+            this.startAim()
+        }
+        this.updateAimCamera()
+    } else {
+        if (this.isLookingAhead) {
+            this.stopAim()
+        }
+    }
   }
 
   updateRepairTime() {

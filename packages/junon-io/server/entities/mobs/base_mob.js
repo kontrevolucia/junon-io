@@ -18,6 +18,7 @@ const Corpse = require("./../corpse")
 const EventBus = require('eventbusjs')
 const ExceptionReporter = require('junon-common/exception_reporter')
 const Item = require("../item")
+const EquipmentInventory = require("./../equipment_inventory")
 
 const p2 = require("p2")
 const vec2 = p2.vec2
@@ -2930,7 +2931,8 @@ Object.assign(BaseMob.prototype, Attacker.prototype, {
   },
 
   getAttackInterval() {
-    return this.getStats(this.getLevel()).reload
+    return this.equipments?.get(Protocol.definition().EquipmentRole.Hand)?.getReload() ??
+    this.getStats(this.getLevel()).reload
   },
 
   performAttack(attackTarget) {

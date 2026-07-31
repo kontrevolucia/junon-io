@@ -7,6 +7,10 @@ const Item = require("./../item")
 
 class Pirate extends LandMob {
 
+  getWeaponsList() {
+    return ["StunBaton", "LeadPipe"]
+  }
+
   preApplyData() {
     this.initEquipment()
   }
@@ -29,9 +33,13 @@ class Pirate extends LandMob {
 
   initWeapon() {
     if (!this.equipments) return
+    
+    const weapons = this.getWeaponsList()
+    
+    const weapon = Math.floor(Math.random() * weapons.length);
 
       // but it still references the same equipment instance
-    let item = new Item(this, "StunBaton", { isUnbreakable: true })
+    let item = new Item(this, weapons[weapon], { isUnbreakable: true })
     this.equipments.storeAt(Protocol.definition().EquipmentRole.Hand, item)
   }
 
@@ -117,7 +125,10 @@ class Pirate extends LandMob {
       })
     }
   }
-
+  
+  getRange() {
+    return this.equipments.get(Protocol.definition().EquipmentRole.Hand) || super.getRange()
+  }
 
   canDamageWalls(){
     return true
