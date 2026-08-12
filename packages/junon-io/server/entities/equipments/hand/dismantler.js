@@ -7,12 +7,12 @@ const Constants = require("./../../../../common/constants.json")
 class Dismantler extends HandEquipment {
   use(player, targetEntity) {
     if (targetEntity && targetEntity.isBuilding() ) {
-      let isOwnedByOtherPlayer = targetEntity.owner && targetEntity.owner !== player
-      // if (isOwnedByOtherPlayer) {
-      //   player.showError("Cannot remove structures you don't own")
-      // } else {
+      let isOwnedByOtherPlayer = !(targetEntity.owner && targetEntity.owner == player.team)
+      if (isOwnedByOtherPlayer) {
+        player.showError("Cannot remove structures you don't own")
+      } else {
       targetEntity.dismantle()
-      // }
+      }
     }
   }
 

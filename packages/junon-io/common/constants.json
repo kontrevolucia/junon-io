@@ -4244,6 +4244,24 @@
       },
       "description": "Basic Melee weapon. Damage 10"
     },
+    "Dismantler": {
+      "parent": "Equipments.MeleeEquipment",
+      "isWeapon": true,
+      "cost": {
+        "gold": 100
+      },
+      "categories": {"melee_damage": true},
+      "isAnimatable": true,
+      "stats": {
+        "damage": 10,
+        "range": 55,
+        "meleeRange": 55
+      },
+      "requirements": {
+        "IronOre": 10
+      },
+      "description": "Basic Melee weapon. Damage 10"
+    },
     "PlasmaBlade": {
       "parent": "Equipments.MeleeEquipment",
       "isWeapon": true,
